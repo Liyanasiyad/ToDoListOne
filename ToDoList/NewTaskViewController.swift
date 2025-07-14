@@ -8,6 +8,8 @@
 import UIKit
 protocol NewTaskDelegate: AnyObject {
     func closeView()
+    func presentErrorAlert(title: String, message: String)
+    
 }
 
 class NewTaskViewController: UIViewController {
@@ -34,7 +36,7 @@ class NewTaskViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.black.withAlphaComponent(0.9)
+        view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
         modalView.transform = CGAffineTransform(scaleX: 0, y: 0)
         view.addSubview(modalView)
 
@@ -52,5 +54,12 @@ class NewTaskViewController: UIViewController {
 extension NewTaskViewController: NewTaskDelegate {
     func closeView() {
         dismiss(animated: true)
+    }
+    func presentErrorAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default)
+        alert.addAction(okAction)
+        present(alert, animated: true)
+        
     }
 }

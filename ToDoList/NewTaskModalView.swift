@@ -82,7 +82,8 @@ class NewTaskModalView: UIView {
         guard let caption = descriptionTextView.text,
               descriptionTextView.textColor != UIColor.placeholderText,caption.count >= 4 else
         {
-          shakeAnimation()
+            delegate?.presentErrorAlert(title: "Caption Error", message: "Caption must be at least 4 characters long")
+            shakeAnimation()
             return
         }
         let selectedRow = categoryPickerView.selectedRow(inComponent: 0)

@@ -7,15 +7,37 @@
 
 import UIKit
 
-class settingsViewController: UIViewController {
+class SettingsViewController: UIViewController {
 
     @IBOutlet weak var settingsTitleLabel: UILabel!
     @IBOutlet weak var appThemeLabel: UILabel!
     
     @IBOutlet weak var modalView: UIView!
+    
+    @IBOutlet weak var appThemeSegmentedControl: UISegmentedControl!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        modalView.transform = CGAffineTransform(scaleX: 0, y: 0)
+        let window = UIApplication.shared.connectedScenes.flatMap {($0 as? UIWindowScene)?.windows ?? [] }.first { $0 .isKeyWindow}
+        if let window = window {
+            switch window.overrideUserInterfaceStyle {
+            case .light:
+                appThemeSegmentedControl.selectedSegmentIndex = 0
+            case .dark:
+                appThemeSegmentedControl.selectedSegmentIndex = 1
+            case .unspecified:
+                appThemeSegmentedControl.selectedSegmentIndex = 2
+                
+            @unknown default:
+                appThemeSegmentedControl.selectedSegmentIndex = 2
+            }
+        }
 
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        modalView.scaleUpAnimation()
     }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -34,7 +56,9 @@ class settingsViewController: UIViewController {
         //windows
         //keywindow
         //overrideUserInterfaceStyle
+        
         let window = UIApplication.shared.connectedScenes.flatMap {($0 as? UIWindowScene)?.windows ?? [] }.first { $0 .isKeyWindow}
+        
         if sender.selectedSegmentIndex == 0 {
             window?.overrideUserInterfaceStyle = .light
         }

@@ -85,12 +85,6 @@
                                                                 <constraint firstItem="3VB-LG-Ydm" firstAttribute="top" secondItem="lpz-BV-6iZ" secondAttribute="top" constant="2" id="qhQ-PO-T9c"/>
                                                             </constraints>
                                                         </view>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cM5-M5-Lvz">
-                                                            <rect key="frame" x="20" y="57" width="292.33333333333331" height="18"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01/07/2025" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fh8-yM-WdX">
                                                             <rect key="frame" x="20" y="85" width="69" height="16"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
@@ -119,6 +113,12 @@
                                                                 <action selector="editButtonTapped:" destination="41u-PS-m9t" eventType="touchUpInside" id="exj-VJ-4o8"/>
                                                             </connections>
                                                         </button>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cM5-M5-Lvz">
+                                                            <rect key="frame" x="20" y="57" width="292.33333333333331" height="18"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                                                     <constraints>
@@ -185,7 +185,7 @@
         <!--Settings View Controller-->
         <scene sceneID="UUx-fj-pxC">
             <objects>
-                <viewController id="pHc-Rm-YNk" customClass="settingsViewController" customModule="ToDoList" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="pHc-Rm-YNk" customClass="SettingsViewController" customModule="ToDoList" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JVj-5U-Roq">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -213,7 +213,7 @@
                                             <segment title="" image="iphone.gen1" catalog="system"/>
                                         </segments>
                                         <connections>
-                                            <action selector="segmentedControlValueChange:" destination="pHc-Rm-YNk" eventType="valueChanged" id="9Aw-Xv-mi6"/>
+                                            <action selector="segmentedControlValueChange:" destination="pHc-Rm-YNk" eventType="valueChanged" id="3Ez-2Q-sQl"/>
                                         </connections>
                                     </segmentedControl>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KyB-o5-LVH">
@@ -255,6 +255,7 @@
                     </view>
                     <connections>
                         <outlet property="appThemeLabel" destination="Nbj-Ks-OBJ" id="Dma-dH-nX9"/>
+                        <outlet property="appThemeSegmentedControl" destination="gWy-m3-Lfa" id="VB8-ff-92u"/>
                         <outlet property="modalView" destination="IUW-cd-36Z" id="b0I-ny-oDA"/>
                         <outlet property="settingsTitleLabel" destination="Nbj-Ks-OBJ" id="bXK-w1-hZy"/>
                     </connections>
