@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import os
 ///The first screen you see when the app launches.This is where you see all the tasks and this is the strating point for adding or editing a tasks.Tasks can only be deleted from here.
 
 class ViewController: UIViewController {
@@ -29,6 +30,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpView()
+        setupNotifications()
     }
     private func setUpView() {
         titleView.clipsToBounds = true
@@ -76,12 +79,14 @@ class ViewController: UIViewController {
     
     */
  @objc func createTask(_ notification: Notification) {
+        os_log("validation of task suceeded",type: .info)
         guard let userInfo = notification.userInfo,
               let task = userInfo["newTask"] as? Task else {
             return
         }
         tasks.append(task)
         tableView.reloadData()
+    os_log("tasks successfully created",type: .info)
         
     }
     override func viewDidLayoutSubviews() {
