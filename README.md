@@ -7,7 +7,7 @@ The ToDoList App is a simple and intuitive mobile application designed to help u
   <img src="https://github.com/Liyanasiyad/ToDoListOne/blob/main/ScreenshotTwo.png" alt ="Screenshot 2" width="400"/> 
   </p>
 
-##Documentation
+## Documentation
 ToDoList app's documentation can be found in xcode.To view documentation, clone the project, navigate to the toolbar where you will find the option window and select Developer Documentation 
   
 
